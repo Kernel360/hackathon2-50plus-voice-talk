@@ -1,8 +1,11 @@
 package com.example.hackaton250plusvoicetalk.user.persist.entity;
 
 
+import com.example.hackaton250plusvoicetalk.comments.persist.entity.CommentEntity;
 import com.example.hackaton250plusvoicetalk.constants.Authority;
 import com.example.hackaton250plusvoicetalk.constants.Gender;
+import com.example.hackaton250plusvoicetalk.likes.persist.entity.LikesEntity;
+import com.example.hackaton250plusvoicetalk.posts.persist.entity.PostEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
@@ -12,6 +15,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @Getter
 @Setter
@@ -46,6 +50,15 @@ public class UserEntity {
 
     private String province;
     private String city;
+
+    @OneToMany(mappedBy = "user")
+    private List<PostEntity> posts;
+
+    @OneToMany(mappedBy = "user")
+    private List<CommentEntity> comments;
+
+    @OneToMany(mappedBy = "user")
+    private List<LikesEntity> likes;
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority(String.valueOf(this.authority)));
