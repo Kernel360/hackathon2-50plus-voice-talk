@@ -4,7 +4,6 @@ package com.example.hackaton250plusvoicetalk.user.persist.entity;
 import com.example.hackaton250plusvoicetalk.comments.persist.entity.CommentEntity;
 import com.example.hackaton250plusvoicetalk.constants.Authority;
 import com.example.hackaton250plusvoicetalk.constants.Gender;
-import com.example.hackaton250plusvoicetalk.likes.persist.entity.LikesEntity;
 import com.example.hackaton250plusvoicetalk.posts.persist.entity.PostEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -56,9 +55,6 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "user")
     private List<CommentEntity> comments;
-
-    @OneToMany(mappedBy = "user")
-    private List<LikesEntity> likes;
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority(String.valueOf(this.authority)));
