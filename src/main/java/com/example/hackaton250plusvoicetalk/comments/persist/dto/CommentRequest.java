@@ -13,9 +13,8 @@ import lombok.*;
 @ToString
 public class CommentRequest {
     private String content;
-    private Long postId;
 
-    public CommentEntity toEntity(UserEntity user, PostEntity post) {
+    public CommentEntity toEntity(PostEntity post,UserEntity user) {
         return CommentEntity.builder()
                 .content(content)
                 .post(post)

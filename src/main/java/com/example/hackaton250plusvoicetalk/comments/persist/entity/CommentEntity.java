@@ -6,7 +6,7 @@ import com.example.hackaton250plusvoicetalk.user.persist.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity
+@Entity(name = "comments")
 @Getter
 @Setter
 @AllArgsConstructor
