@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @Builder
 @ToString
 public class CommentResponse {
+    private Long commentId;
     private String content;
     private Long userId;
     private String username;
@@ -21,6 +22,7 @@ public class CommentResponse {
 
     public static CommentResponse toDto(CommentEntity comment) {
         return CommentResponse.builder()
+                .commentId(comment.getId())
                 .content(comment.getContent())
                 .userId(comment.getUser().getUserId())
                 .username(comment.getUser().getUsername())
