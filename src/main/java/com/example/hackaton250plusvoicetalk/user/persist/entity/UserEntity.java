@@ -1,12 +1,9 @@
 package com.example.hackaton250plusvoicetalk.user.persist.entity;
 
-
+import com.example.hackaton250plusvoicetalk.comments.persist.entity.CommentEntity;
 import com.example.hackaton250plusvoicetalk.constants.Authority;
 import com.example.hackaton250plusvoicetalk.constants.Gender;
 import com.example.hackaton250plusvoicetalk.posts.persist.entity.PostEntity;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
@@ -54,19 +51,11 @@ public class UserEntity {
     private String province;
     private String city;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<PostEntity> posts;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "user")
-    private List<PostEntity> posts;
-
-
-
-//    @OneToMany(mappedBy = "user")
-//    private List<PostEntity> posts;
-
+    private List<CommentEntity> comments;
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority(String.valueOf(this.authority)));
