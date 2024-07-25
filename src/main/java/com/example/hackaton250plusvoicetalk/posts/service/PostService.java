@@ -58,4 +58,10 @@ public class PostService {
                 .map(PostResponse::toDto)
                 .toList();
     }
+
+    public List<PostResponse> findByUserId(Long userId) {
+        return postRepository.findByUser_UserId(userId).stream()
+                .map(PostResponse::toDto)
+                .toList();
+    }
 }
