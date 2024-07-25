@@ -6,7 +6,9 @@ import com.example.hackaton250plusvoicetalk.chatroom.persist.entity.MessageEntit
 import com.example.hackaton250plusvoicetalk.constants.Authority;
 import com.example.hackaton250plusvoicetalk.constants.Gender;
 import com.example.hackaton250plusvoicetalk.posts.persist.entity.PostEntity;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
@@ -59,6 +61,9 @@ public class UserEntity {
     private List<PostEntity> posts;
 
     @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private List<PostEntity> posts;
+
     @OneToMany(mappedBy = "user")
     private List<ChatInfoEntity> chatInfo;
 
