@@ -156,7 +156,7 @@ public class UserService {
         Api<UserEntity> response;
         HttpSession httpSession = httpServletRequest.getSession();
 
-        if(httpSession.getAttribute(SessionConst.LOGIN_USER).equals(userId)){   // TODO: LOGIN_ADMIN 처리 안됨
+        if(httpSession.getAttribute(SessionConst.LOGIN_USER).equals(userId)){
             response = Api.<UserEntity>builder()
                     .resultCode(String.valueOf(HttpStatus.OK.value()))
                     .resultMessage(HttpStatus.OK.getReasonPhrase())

@@ -42,7 +42,7 @@ public class MyPageController {
      * @param httpServletRequest the http servlet request
      * @return the edited user info
      */
-    @CrossOrigin(origins = "http://10.230.110.50:3000")
+    @CrossOrigin(origins = "http://192.168.219.101:3000")
     @PatchMapping("/users/{user-id}")
     public Api<UserEntity> editUser(@PathVariable("user-id") Long userId, @RequestBody @Valid Api<UserRequest> userRequest,
                                     HttpServletRequest httpServletRequest){

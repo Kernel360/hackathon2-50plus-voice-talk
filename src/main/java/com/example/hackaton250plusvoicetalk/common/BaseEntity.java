@@ -1,6 +1,7 @@
 package com.example.hackaton250plusvoicetalk.common;
 
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
@@ -17,10 +18,10 @@ import java.time.LocalDateTime;
 public class BaseEntity {
 
     @CreatedDate
-    @Column(name = "createdDate", updatable = false, nullable = false)
+    @Column(name = "created_date", updatable = false, nullable = false)
     private LocalDateTime createdDate;
 
     @LastModifiedDate
-    @Column(name = "modifiedDate", updatable = false)
+    @Column(name = "modified_date", updatable = false, nullable = false)
     private LocalDateTime modifiedDate;
 }
